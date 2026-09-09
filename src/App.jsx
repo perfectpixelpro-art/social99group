@@ -81,7 +81,7 @@ const faqs = [
 
 const blogPost = {
   title: 'People Think AI Will Run Their Social Media Management. It Won’t.',
-  description: 'Can AI run your social media management? Learn what AI can handle, and how to use automation without losing control. Book a call with Social 99.',
+  description: 'Automate social media management with AI-powered content, scheduling, and engagement from Social99 Group. Save time, boost growth, and get started today!',
   slug: '/ai-social-media-automation-for-social-media-management',
 }
 
@@ -680,15 +680,15 @@ function App() {
       document.querySelector('meta[property="og:title"]')?.setAttribute('content', 'Blog | Social99 Group')
       document.querySelector('meta[property="og:description"]')?.setAttribute('content', blogPost.description)
     } else if (path === blogPost.slug) {
-      document.title = 'People Think AI Will Run Their Social Media Management. It Won’t. | Social 99 Group'
+      document.title = 'AI Social Media Automation Services | Social99 Group'
       document.querySelector('meta[name="description"]')?.setAttribute('content', blogPost.description)
-      document.querySelector('meta[property="og:title"]')?.setAttribute('content', 'People Think AI Will Run Their Social Media Management. It Won’t. | Social 99 Group')
+      document.querySelector('meta[property="og:title"]')?.setAttribute('content', 'AI Social Media Automation Services | Social99 Group')
       document.querySelector('meta[property="og:description"]')?.setAttribute('content', blogPost.description)
     } else {
-      document.title = 'Social Media Management, SEO and Social Growth | Social99 Group'
-      document.querySelector('meta[name="description"]')?.setAttribute('content', 'Grow your business with Facebook Management, Instagram Ads Management, SEO Services, social media management, and website design and development. Sign up now')
-      document.querySelector('meta[property="og:title"]')?.setAttribute('content', 'Social Media Management, SEO and Social Growth | Social99 Group')
-      document.querySelector('meta[property="og:description"]')?.setAttribute('content', 'Grow your business with Facebook Management, Instagram Ads Management, SEO Services, social media management, and website design and development. Sign up now')
+      document.title = 'Social99 Group | Social Media & Digital Marketing Services'
+      document.querySelector('meta[name="description"]')?.setAttribute('content', 'Grow your business with Social99 Group’s social media, digital marketing, SEO, content, and branding services. Get started today and grow your online presence!')
+      document.querySelector('meta[property="og:title"]')?.setAttribute('content', 'Social99 Group | Social Media & Digital Marketing Services')
+      document.querySelector('meta[property="og:description"]')?.setAttribute('content', 'Grow your business with Social99 Group’s social media, digital marketing, SEO, content, and branding services. Get started today and grow your online presence!')
     }
   }, [path])
 
