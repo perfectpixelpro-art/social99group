@@ -26,17 +26,21 @@ const siteUrl = 'https://social99group.com'
 
 const linkedTextClass = 'font-semibold text-[#006fe0] underline decoration-[#006fe0] decoration-2 underline-offset-4 transition hover:text-[#0059b3]'
 
-const articleLinkedPhrases = {
+const aiArticleLinks = {
+  'The Social 99 Group': links.home,
+  'The Social 99': links.home,
+  'social media marketing platforms': links.home,
+  'Content Marketing Services': links.contentMarketing,
+  'Social Media Management USA': links.socialMediaUsa,
+}
+
+const linkedinArticleLinks = {
   'LinkedIn social media management': links.linkedin,
   'Social media management pricing': links.pricing,
   'short form videos': links.shortFormVideos,
   'YouTube management services': links.youtube,
-  'The Social 99 Group': links.home,
-  'The Social 99': links.home,
   'Social 99 Group': '/',
-  'social media marketing platforms': links.home,
-  'Content Marketing Services': links.contentMarketing,
-  'Social Media Management USA': links.socialMediaUsa,
+  'The Social 99': links.home,
 }
 
 const benefits = [
@@ -325,8 +329,8 @@ const linkedinPost = {
 }
 
 const posts = [
-  { ...linkedinPost, sections: linkedinArticleSections },
-  { ...aiPost, sections: articleSections },
+  { ...linkedinPost, sections: linkedinArticleSections, linkedPhrases: linkedinArticleLinks },
+  { ...aiPost, sections: articleSections, linkedPhrases: aiArticleLinks },
 ]
 
 function Logo() {
@@ -614,7 +618,7 @@ function BlogIndexPage() {
   )
 }
 
-function ArticleParagraph({ paragraph, firstOccurrence = {} }) {
+function ArticleParagraph({ paragraph, linkedPhrases = {}, firstOccurrence = {} }) {
   if (typeof paragraph === 'string' && paragraph.startsWith('Book a call')) {
     return (
       <a className="group inline-flex items-center gap-2 rounded-full bg-[#006fe0] px-6 py-3.5 text-[15px] font-bold text-white shadow-[0_18px_40px_rgba(0,111,224,0.25)] transition hover:bg-[#0059b3]" href={links.bookCall}>
@@ -626,7 +630,7 @@ function ArticleParagraph({ paragraph, firstOccurrence = {} }) {
 
   // Only link a phrase in the first paragraph it appears in, so repeated terms
   // (e.g. "Social 99 Group") are linked once, not on every mention.
-  const phrases = Object.keys(articleLinkedPhrases)
+  const phrases = Object.keys(linkedPhrases)
     .filter((phrase) => firstOccurrence[phrase] === paragraph)
     .sort((a, b) => b.length - a.length)
 
@@ -646,7 +650,7 @@ function ArticleParagraph({ paragraph, firstOccurrence = {} }) {
 
     const { phrase, index } = matches[0]
     if (index > 0) parts.push(remaining.slice(0, index))
-    parts.push({ phrase, href: articleLinkedPhrases[phrase] })
+    parts.push({ phrase, href: linkedPhrases[phrase] })
     remaining = remaining.slice(index + phrase.length)
   }
 
@@ -665,9 +669,10 @@ function BlogArticlePage() {
   const post = posts.find((item) => item.slug === window.location.pathname) ?? posts[0]
   const [heroSection, ...contentSections] = post.sections
 
+  const linkedPhrases = post.linkedPhrases ?? {}
   const allParagraphs = post.sections.flatMap((section) => section.paragraphs)
   const firstOccurrence = {}
-  for (const phrase of Object.keys(articleLinkedPhrases)) {
+  for (const phrase of Object.keys(linkedPhrases)) {
     const match = allParagraphs.find((paragraph) => typeof paragraph === 'string' && paragraph.includes(phrase))
     if (match) firstOccurrence[phrase] = match
   }
@@ -682,7 +687,7 @@ function BlogArticlePage() {
         </div>
         <h1 className="mt-7 text-[clamp(32px,3.7vw,48px)] font-semibold leading-[1.12] tracking-[-0.02em] text-[#013186]">{heroSection.heading}</h1>
         <div className="mt-8 space-y-6 text-[18px] leading-[1.85] text-[#475467]">
-          {heroSection.paragraphs.map((paragraph) => <ArticleParagraph key={paragraph} paragraph={paragraph} firstOccurrence={firstOccurrence} />)}
+          {heroSection.paragraphs.map((paragraph) => <ArticleParagraph key={paragraph} paragraph={paragraph} linkedPhrases={linkedPhrases} firstOccurrence={firstOccurrence} />)}
         </div>
       </div>
 
@@ -691,7 +696,7 @@ function BlogArticlePage() {
           <section className="border-t border-[#e7eaf0] pt-10 mt-10" key={section.heading}>
             <h2 className="text-[clamp(30px,3.4vw,44px)] font-semibold leading-[1.16] tracking-[-0.02em] text-black">{section.heading}</h2>
             <div className="mt-6 space-y-5 text-[17px] leading-[1.85] text-[#475467]">
-              {section.paragraphs.map((paragraph) => <ArticleParagraph key={paragraph} paragraph={paragraph} firstOccurrence={firstOccurrence} />)}
+              {section.paragraphs.map((paragraph) => <ArticleParagraph key={paragraph} paragraph={paragraph} linkedPhrases={linkedPhrases} firstOccurrence={firstOccurrence} />)}
             </div>
           </section>
         ))}
