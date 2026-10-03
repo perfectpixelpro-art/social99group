@@ -14,6 +14,7 @@ const links = {
   pricing: 'https://thesocial99.com/pricing',
   linkedin: 'https://thesocial99.com/linkedin-management-services/',
   youtube: 'https://thesocial99.com/youtube-management-services/',
+  shortFormVideos: 'https://thesocial99.com/short-form-videos-services',
   x: 'https://thesocial99.com/x-twitter-management-services',
   tiktok: 'https://thesocial99.com/tiktok-management-services',
   contentMarketing: 'https://thesocial99.com/content-marketing-services',
@@ -24,6 +25,19 @@ const links = {
 const siteUrl = 'https://social99group.com'
 
 const linkedTextClass = 'font-semibold text-[#006fe0] underline decoration-[#006fe0] decoration-2 underline-offset-4 transition hover:text-[#0059b3]'
+
+const articleLinkedPhrases = {
+  'LinkedIn social media management': links.linkedin,
+  'Social media management pricing': links.pricing,
+  'short form videos': links.shortFormVideos,
+  'YouTube management services': links.youtube,
+  'The Social 99 Group': links.home,
+  'The Social 99': links.home,
+  'Social 99 Group': '/',
+  'social media marketing platforms': links.home,
+  'Content Marketing Services': links.contentMarketing,
+  'Social Media Management USA': links.socialMediaUsa,
+}
 
 const benefits = [
   ['Regular posts', 'Keep your page active with a steady mix of posts, Reels, and other content.'],
@@ -600,17 +614,8 @@ function BlogIndexPage() {
   )
 }
 
-function ArticleParagraph({ paragraph }) {
-  const linkedPhrases = {
-    'The Social 99 Group': links.home,
-    'The Social 99': links.home,
-    'social media marketing platforms': links.home,
-    'Content Marketing Services': links.contentMarketing,
-    'Social Media Management USA': links.socialMediaUsa,
-    'YouTube management services': links.youtube,
-  }
-
-  if (paragraph.startsWith('Book a call')) {
+function ArticleParagraph({ paragraph, firstOccurrence = {} }) {
+  if (typeof paragraph === 'string' && paragraph.startsWith('Book a call')) {
     return (
       <a className="group inline-flex items-center gap-2 rounded-full bg-[#006fe0] px-6 py-3.5 text-[15px] font-bold text-white shadow-[0_18px_40px_rgba(0,111,224,0.25)] transition hover:bg-[#0059b3]" href={links.bookCall}>
         {paragraph}
@@ -619,7 +624,12 @@ function ArticleParagraph({ paragraph }) {
     )
   }
 
-  const phrases = Object.keys(linkedPhrases).sort((a, b) => b.length - a.length)
+  // Only link a phrase in the first paragraph it appears in, so repeated terms
+  // (e.g. "Social 99 Group") are linked once, not on every mention.
+  const phrases = Object.keys(articleLinkedPhrases)
+    .filter((phrase) => firstOccurrence[phrase] === paragraph)
+    .sort((a, b) => b.length - a.length)
+
   const parts = []
   let remaining = paragraph
 
@@ -636,7 +646,7 @@ function ArticleParagraph({ paragraph }) {
 
     const { phrase, index } = matches[0]
     if (index > 0) parts.push(remaining.slice(0, index))
-    parts.push({ phrase, href: linkedPhrases[phrase] })
+    parts.push({ phrase, href: articleLinkedPhrases[phrase] })
     remaining = remaining.slice(index + phrase.length)
   }
 
@@ -655,6 +665,13 @@ function BlogArticlePage() {
   const post = posts.find((item) => item.slug === window.location.pathname) ?? posts[0]
   const [heroSection, ...contentSections] = post.sections
 
+  const allParagraphs = post.sections.flatMap((section) => section.paragraphs)
+  const firstOccurrence = {}
+  for (const phrase of Object.keys(articleLinkedPhrases)) {
+    const match = allParagraphs.find((paragraph) => typeof paragraph === 'string' && paragraph.includes(phrase))
+    if (match) firstOccurrence[phrase] = match
+  }
+
   return (
     <article className="bg-white pb-[70px]">
       <div className="mx-auto max-w-[880px] px-5 pt-10 md:px-10 lg:px-[40px] xl:px-[60px]">
@@ -665,7 +682,7 @@ function BlogArticlePage() {
         </div>
         <h1 className="mt-7 text-[clamp(32px,3.7vw,48px)] font-semibold leading-[1.12] tracking-[-0.02em] text-[#013186]">{heroSection.heading}</h1>
         <div className="mt-8 space-y-6 text-[18px] leading-[1.85] text-[#475467]">
-          {heroSection.paragraphs.map((paragraph) => <ArticleParagraph key={paragraph} paragraph={paragraph} />)}
+          {heroSection.paragraphs.map((paragraph) => <ArticleParagraph key={paragraph} paragraph={paragraph} firstOccurrence={firstOccurrence} />)}
         </div>
       </div>
 
@@ -674,7 +691,7 @@ function BlogArticlePage() {
           <section className="border-t border-[#e7eaf0] pt-10 mt-10" key={section.heading}>
             <h2 className="text-[clamp(30px,3.4vw,44px)] font-semibold leading-[1.16] tracking-[-0.02em] text-black">{section.heading}</h2>
             <div className="mt-6 space-y-5 text-[17px] leading-[1.85] text-[#475467]">
-              {section.paragraphs.map((paragraph) => <ArticleParagraph key={paragraph} paragraph={paragraph} />)}
+              {section.paragraphs.map((paragraph) => <ArticleParagraph key={paragraph} paragraph={paragraph} firstOccurrence={firstOccurrence} />)}
             </div>
           </section>
         ))}
