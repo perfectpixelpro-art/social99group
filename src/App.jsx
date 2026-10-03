@@ -79,15 +79,18 @@ const faqs = [
   ['Do you also offer SEO Services?', 'Yes. Our SEO Services can include keyword research, on-page changes, content planning, and improvements to help your website show up for searches that are relevant to your business.'],
 ]
 
-const blogPost = {
+const aiPost = {
   title: 'People Think AI Will Run Their Social Media Management. It Won’t.',
   description: 'Automate social media management with AI-powered content, scheduling, and engagement from Social99 Group. Save time, boost growth, and get started today!',
+  metaTitle: 'AI Social Media Automation Services | Social99 Group',
   slug: '/ai-social-media-automation-for-social-media-management',
 }
 
+const blogDescription = 'Practical social media, LinkedIn, and digital marketing tips to help small businesses stay consistent, reach the right people, and grow.'
+
 const articleSections = [
   {
-    heading: blogPost.title,
+    heading: aiPost.title,
     paragraphs: [
       'Businesses now want AI to run their social media accounts. From picking the topic to writing the post, and community management, so they can focus on the business growth.',
       'This might sound great, but AI can do blunders, someone still has to check and approve the content.',
@@ -205,6 +208,111 @@ const articleSections = [
       'Book a call with The Social 99 Group',
     ],
   },
+]
+
+const linkedinArticleSections = [
+  {
+    heading: '5 Reasons Why Small Businesses Need LinkedIn Social Media Management',
+    paragraphs: [
+      'Most small businesses know LinkedIn is important for building a professional online presence. The challenge is keeping the page active with useful content and consistent posting. LinkedIn social media management gives your business a clear content plan and regular activity that can help you stay visible to potential clients and industry connections. Social 99 Group offers LinkedIn management services built around the needs of small businesses.',
+    ],
+  },
+  {
+    heading: '1. You Get a Clear Strategy Instead of Random Posts',
+    paragraphs: [
+      'Posting on LinkedIn without a clear plan can make your business page feel unstructured. It can also make it harder to build authority or attract potential leads.',
+      'With professional LinkedIn management services, your content is planned around your business, audience, and goals. Social 99 Group handles content planning, posting, and scheduling so your LinkedIn presence stays active and purposeful.',
+      'A clear LinkedIn content strategy helps you share the right mix of content to build credibility and reach a wider audience. This also supports lead generation. You get professional LinkedIn management without the cost of a traditional agency.',
+    ],
+  },
+  {
+    heading: '2. Your LinkedIn Profile Works as a Professional Business Tool',
+    paragraphs: [
+      'Your LinkedIn profile should do more than list your job title and experience. It should clearly communicate what you do and give potential clients a reason to connect with you.',
+      'With LinkedIn management for small business, your profile content is planned around your expertise and business goals. The right LinkedIn management services can help you present your experience clearly while building authority with the people you want to reach.',
+      'Social 99 Group manages your LinkedIn content with a focus on building credibility and attracting potential leads.',
+    ],
+  },
+  {
+    heading: '3. Stay Consistent Without Spending Hours on LinkedIn',
+    paragraphs: [
+      'Keeping LinkedIn active is difficult when you are focused on running your business. You may have ideas but no time to turn them into regular posts.',
+      'With LinkedIn social media management, The Social 99 Group handles content planning, post writing, visual creation, posting, and scheduling. You can share your ideas and updates while we turn them into professional LinkedIn content.',
+      'LinkedIn management doesn’t have to come with a large agency retainer. We offer social media management starting at $99/month, with content creation, scheduling, and reporting included based on your plan.',
+    ],
+  },
+  {
+    heading: '4. Content That’s Built for Leads, Not Just Likes',
+    paragraphs: [
+      'Likes and reactions can show that people noticed your content. For a business, LinkedIn should also help create conversations and potential leads.',
+      'With professional LinkedIn management services, Social 99 Group creates content around your expertise and services. This can include written posts, graphics, and short form videos when video can communicate your message more effectively.',
+      'Each post has a clear purpose. Some build authority while others explain your services or encourage potential clients to take the next step. The goal is to create LinkedIn content that gets attention and gives the right audience a reason to connect with your business.',
+    ],
+  },
+  {
+    heading: '5. You Understand What’s Working and What Isn’t',
+    paragraphs: [
+      'Posting consistently is only part of social media management. You also need to know which content is getting attention and helping you reach the right audience.',
+      'With professional LinkedIn management services, we track your content performance and share clear reports. This helps you understand what is working and where your content strategy can improve.',
+      'If you also use YouTube management services, the same approach can help you track your video content. This gives you a clearer view of your content performance across both platforms.',
+    ],
+  },
+  {
+    heading: 'Common Myths About LinkedIn Social Media Management',
+    paragraphs: [
+      'Myth 1: “LinkedIn Is Only for Big Companies”',
+      'Reality: Small businesses can use LinkedIn to share their expertise, explain their services, and connect with potential customers and business partners.',
+      'Myth 2: “I Can Post When I Have Time”',
+      'Reality: Posting only when you have time makes it difficult to maintain a consistent presence. A planned content schedule keeps the page active without adding the workload.',
+      'Myth 3: “LinkedIn Management Is Too Expensive”',
+      'Reality: Social media management pricing depends on the services included. Compare the number of posts, graphics, videos, revisions, scheduling, and reporting before choosing a plan.',
+      'Myth 4: “$99 Social Media Management Includes Everything”',
+      'Reality: A $99 social media management plan may include a specific number of content pieces and services. Check the deliverables so you know exactly what is included each month.',
+      'Myth 5: “LinkedIn Is Only About Text Posts”',
+      'Reality: LinkedIn content can include text posts, graphics, carousels, documents, and short-form videos. The right formats depend on your audience and what you want to communicate.',
+      'Myth 6: “LinkedIn Results Should Be Instant”',
+      'Reality: Building a consistent LinkedIn presence takes time. Track profile views, engagement, clicks, enquiries, and other useful actions to understand how your content is performing.',
+    ],
+  },
+  {
+    heading: 'Is LinkedIn Management Right for Your Small Business?',
+    paragraphs: [
+      'For founders and consultants, LinkedIn is often where potential clients learn what you do and what you know. Social 99 Group manages LinkedIn profiles and company pages with content planning, writing, graphics, videos, scheduling, revisions and reporting.',
+      'Plans start at $99/month so you can get professional LinkedIn management without the cost of a traditional agency. If you want to stay active on LinkedIn without managing the content yourself, book a call with Social 99 Group to discuss your needs.',
+    ],
+  },
+  {
+    heading: 'Frequently Asked Questions',
+    paragraphs: [
+      'How often should a small business post on LinkedIn?',
+      'There is no single posting schedule that works for every business. The key is to maintain a consistent schedule with useful content that gives your audience a reason to follow and engage with your business.',
+      'Can LinkedIn management include my personal profile?',
+      'Yes. LinkedIn management can cover both personal profiles and company pages. For founders and consultants, managing your personal profile can help you share your expertise while keeping your business presence active.',
+      'What should a small business post on LinkedIn?',
+      'You can share industry tips, project updates, service information, and case studies. The best topics depend on what your audience wants to know and what your business offers.',
+      'How much does LinkedIn management cost?',
+      'The cost depends on the content and support included in your plan. The Social 99 Group offers social media management starting at $99/month, with services based on your selected plan.',
+    ],
+  },
+  {
+    heading: 'Ready to Get Started?',
+    paragraphs: [
+      'Keep your LinkedIn content consistent without managing it all yourself. Social 99 Group offers professional LinkedIn management starting at $99/month.',
+      'Book a call to discuss your LinkedIn needs',
+    ],
+  },
+]
+
+const linkedinPost = {
+  title: '5 Reasons Why Small Businesses Need LinkedIn Social Media Management',
+  description: 'Get LinkedIn social media management for small businesses from Social 99 Group. Professional content and scheduling from $99/month. Book a call today!',
+  metaTitle: 'LinkedIn Social Media Management for Small Businesses | Social 99 Group',
+  slug: '/linkedin-social-media-management',
+}
+
+const posts = [
+  { ...linkedinPost, sections: linkedinArticleSections },
+  { ...aiPost, sections: articleSections },
 ]
 
 function Logo() {
@@ -462,26 +570,30 @@ function BlogIndexPage() {
           <div className="mx-auto max-w-4xl text-center">
             <p className="text-[12px] font-bold uppercase tracking-[0.16em] text-[#013186]">The Blog</p>
             <h1 className="mt-3 text-[clamp(38px,5.2vw,76px)] font-semibold leading-[1.04] tracking-[-0.02em] text-[#013186]">Insights that Shape Execution</h1>
-            <p className="mx-auto mt-5 max-w-3xl text-[18px] leading-[1.6] text-[#475467]">{blogPost.description}</p>
+            <p className="mx-auto mt-5 max-w-3xl text-[18px] leading-[1.6] text-[#475467]">{blogDescription}</p>
           </div>
         </div>
       </section>
 
       <section className="bg-white pb-[60px] pt-0 md:pb-[80px]">
         <div className="mx-auto max-w-[1440px] px-5 md:px-10 lg:px-[40px] xl:px-[60px]">
-          <article className="grid max-w-[400px] rounded-[18px] border border-[#dbe4f2] bg-[#f4f8ff] p-4 shadow-[0_18px_50px_rgba(16,24,40,0.08)]">
-            <a className="grid min-h-[170px] place-items-center rounded-[14px] bg-white px-5 text-center text-[21px] font-semibold leading-[1.25] text-[#013186]" href={blogPost.slug}>
-              {blogPost.title}
-            </a>
-            <h2 className="mt-5 text-[23px] font-semibold leading-[1.25] tracking-[-0.02em] text-[#013186]">
-              <a href={blogPost.slug}>{blogPost.title}</a>
-            </h2>
-            <p className="mt-4 text-[16px] leading-[1.65] text-[#475467]">{blogPost.description}</p>
-            <a className="group mt-5 inline-flex w-fit items-center gap-2 rounded-[8px] bg-[#013186] px-6 py-3.5 text-[15px] font-bold text-white transition hover:bg-[#0059b3]" href={blogPost.slug}>
-              Read More
-              <ArrowIcon />
-            </a>
-          </article>
+          <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
+            {posts.map((post) => (
+              <article className="flex h-full flex-col rounded-[18px] border border-[#dbe4f2] bg-[#f4f8ff] p-4 shadow-[0_18px_50px_rgba(16,24,40,0.08)]" key={post.slug}>
+                <a className="grid min-h-[170px] place-items-center rounded-[14px] bg-white px-5 text-center text-[21px] font-semibold leading-[1.25] text-[#013186]" href={post.slug}>
+                  {post.title}
+                </a>
+                <h2 className="mt-5 text-[23px] font-semibold leading-[1.25] tracking-[-0.02em] text-[#013186]">
+                  <a href={post.slug}>{post.title}</a>
+                </h2>
+                <p className="mt-4 text-[16px] leading-[1.65] text-[#475467]">{post.description}</p>
+                <a className="group mt-auto inline-flex w-fit items-center gap-2 rounded-[8px] bg-[#013186] px-6 py-3.5 text-[15px] font-bold text-white transition hover:bg-[#0059b3]" href={post.slug}>
+                  Read More
+                  <ArrowIcon />
+                </a>
+              </article>
+            ))}
+          </div>
         </div>
       </section>
     </>
@@ -495,12 +607,13 @@ function ArticleParagraph({ paragraph }) {
     'social media marketing platforms': links.home,
     'Content Marketing Services': links.contentMarketing,
     'Social Media Management USA': links.socialMediaUsa,
+    'YouTube management services': links.youtube,
   }
 
-  if (paragraph === 'Book a call with The Social 99 Group') {
+  if (paragraph.startsWith('Book a call')) {
     return (
       <a className="group inline-flex items-center gap-2 rounded-full bg-[#006fe0] px-6 py-3.5 text-[15px] font-bold text-white shadow-[0_18px_40px_rgba(0,111,224,0.25)] transition hover:bg-[#0059b3]" href={links.bookCall}>
-        Book a call with The Social 99 Group
+        {paragraph}
         <ArrowIcon />
       </a>
     )
@@ -539,7 +652,8 @@ function ArticleParagraph({ paragraph }) {
 }
 
 function BlogArticlePage() {
-  const [heroSection, ...contentSections] = articleSections
+  const post = posts.find((item) => item.slug === window.location.pathname) ?? posts[0]
+  const [heroSection, ...contentSections] = post.sections
 
   return (
     <article className="bg-white pb-[70px]">
@@ -655,7 +769,7 @@ function Footer() {
 
 function App() {
   const path = window.location.pathname
-  const page = path === '/about' ? <AboutPage /> : path === '/blog' ? <BlogIndexPage /> : path === blogPost.slug ? <BlogArticlePage /> : <HomePage />
+  const page = path === '/about' ? <AboutPage /> : path === '/blog' ? <BlogIndexPage /> : posts.some((post) => post.slug === path) ? <BlogArticlePage /> : <HomePage />
 
   useEffect(() => {
     const canonicalPath = path === '/' ? '/' : path.replace(/\/$/, '')
@@ -676,14 +790,15 @@ function App() {
       document.querySelector('meta[property="og:description"]')?.setAttribute('content', 'Learn about The Social 99 group and how it helps small businesses stay active online with clear, consistent social media content.')
     } else if (path === '/blog') {
       document.title = 'Blog | Social99 Group'
-      document.querySelector('meta[name="description"]')?.setAttribute('content', blogPost.description)
+      document.querySelector('meta[name="description"]')?.setAttribute('content', blogDescription)
       document.querySelector('meta[property="og:title"]')?.setAttribute('content', 'Blog | Social99 Group')
-      document.querySelector('meta[property="og:description"]')?.setAttribute('content', blogPost.description)
-    } else if (path === blogPost.slug) {
-      document.title = 'AI Social Media Automation Services | Social99 Group'
-      document.querySelector('meta[name="description"]')?.setAttribute('content', blogPost.description)
-      document.querySelector('meta[property="og:title"]')?.setAttribute('content', 'AI Social Media Automation Services | Social99 Group')
-      document.querySelector('meta[property="og:description"]')?.setAttribute('content', blogPost.description)
+      document.querySelector('meta[property="og:description"]')?.setAttribute('content', blogDescription)
+    } else if (posts.some((post) => post.slug === path)) {
+      const post = posts.find((item) => item.slug === path)
+      document.title = post.metaTitle
+      document.querySelector('meta[name="description"]')?.setAttribute('content', post.description)
+      document.querySelector('meta[property="og:title"]')?.setAttribute('content', post.metaTitle)
+      document.querySelector('meta[property="og:description"]')?.setAttribute('content', post.description)
     } else {
       document.title = 'Social99 Group | Social Media & Digital Marketing Services'
       document.querySelector('meta[name="description"]')?.setAttribute('content', 'Grow your business with Social99 Group’s social media, digital marketing, SEO, content, and branding services. Get started today and grow your online presence!')
